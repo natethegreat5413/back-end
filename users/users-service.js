@@ -1,8 +1,15 @@
 module.exports = {
-    isValid,
+    registerValid,
+    loginValid
 };
 
-function isValid(user) {
+function registerValid(user) {
     return Boolean(user.username && user.email && user.password && typeof user.password === 'string');
-}
+};
+
+function loginValid(user) {
+    return Boolean(user.username && user.password && typeof user.password === 'string');
+};
+
+
 
