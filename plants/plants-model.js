@@ -1,17 +1,5 @@
 const db = require('../data/dbConfig');
 
-module.exports = {
-    findPlants,
-    // findSpecies,
-    findPlantById,
-    // findSpeciesById,
-    addPlant,
-    // addSpecies,
-    updatePlant,
-    // updateSpecies,
-    removePlant,
-    // removeSpecies
-};
 
 const findPlants = () => {
     return db('plants');
@@ -62,3 +50,16 @@ const removePlant = (id) => {
 // const removeSpecies = (id) => {
 //     return db('species').where({ id }).delete();
 // };
+
+module.exports = {
+    findPlants,
+    // findSpecies,
+    findPlantById,
+    // findSpeciesById,
+    addPlant,
+    // addSpecies,
+    updatePlant,
+    // updateSpecies,
+    removePlant,
+    // removeSpecies
+};
