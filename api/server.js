@@ -1,6 +1,6 @@
 const express = require('express');
 
-const restricted = require('../auth/auth-middleware.js')
+const restricted = require('../auth/auth-middleware.js');
 const authRouter = require('../auth/auth-router.js');
 
 const server = express();
