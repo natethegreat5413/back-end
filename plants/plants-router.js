@@ -5,7 +5,7 @@ const restricted = require('../auth/auth-router')
 
 const router = express.Router();
 
-router.get('/plants', restricted, (req, res) => {
+router.get('/', restricted, (req, res) => {
     Plants.findPlants()
         .then((plants) => {
             res.json(plants);
@@ -25,7 +25,7 @@ router.get('/plants', restricted, (req, res) => {
 //         });
 // });
 
-router.get('/plants/:id', restricted, (req, res) => {
+router.get('/:id', restricted, (req, res) => {
     const { id } = req.params;
 
     Plants.findPlantById(id)
@@ -61,7 +61,7 @@ router.get('/plants/:id', restricted, (req, res) => {
 //         });
 // });
 
-router.post('/plants', restricted, (req, res) => {
+router.post('/', restricted, (req, res) => {
     const plantData = req.body;
 
     Plants.addPlant(plantData)
@@ -83,7 +83,7 @@ router.post('/plants', restricted, (req, res) => {
 //     })
 // })
 
-router.put('/plants/:id', restricted, (req, res) => {
+router.put('/:id', restricted, (req, res) => {
     const { id } = req.params
     const changes = req.body
     
@@ -117,7 +117,7 @@ router.put('/plants/:id', restricted, (req, res) => {
 //     })
 // })
 
-router.delete('/plants/:id', restricted, (req, res) => {
+router.delete('/:id', restricted, (req, res) => {
     const { id } = req.params
 
     Plants.removePlant(id).then(deleted => {
@@ -142,3 +142,5 @@ router.delete('/plants/:id', restricted, (req, res) => {
 //         res.status(500).json({ message: 'Failed to delete species' })
 //     })
 // })
+
+module.exports = router;
