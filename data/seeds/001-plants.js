@@ -20,7 +20,7 @@ exports.seed = function (knex) {
     },
     {
       id: 3,
-      user_id: 2,
+      user_id: 1,
       nickname: "Sgt. Angle",
       species: "Japanese Peace Lilly",
       h2o_frequency: 1,
@@ -28,7 +28,7 @@ exports.seed = function (knex) {
     },
     {
       id: 4,
-      user_id: 2,
+      user_id: 1,
       nickname: "Taco",
       species: "pirahna plant",
       h2o_frequency: 7,
@@ -36,7 +36,7 @@ exports.seed = function (knex) {
     },
     {
       id: 5,
-      user_id: 3,
+      user_id: 1,
       nickname: "giant plant",
       species: "not sure",
       h2o_frequency: 1,
