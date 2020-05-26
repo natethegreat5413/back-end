@@ -1,21 +1,21 @@
 # back-end
 This is ugly, we'll fix it later
 
-## Water-My-Plants-4
+# Water-My-Plants-4
 
-##Introduction
+# Introduction
 Registers new users and securely logs in current users. Allows users to view, add, edit, and delete plants.
 
-##Overview
+# Overview
 Each plant is tied to Users ID
 
-##Authentication
+# Authentication
 What is the preferred way of using the API?
 
-##Error Codes
+# Error Codes
 What errors and status codes can a user expect?
 
-##Rate limit
+# Rate limit
 N/A
 
 POST https://water-my-plants-four.herokuapp.com/auth/register
