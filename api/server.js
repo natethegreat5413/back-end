@@ -9,21 +9,27 @@ const plantsRouter = require('../plants/plants-router');
 const server = express();
 
 server.use(cors());
-server.use(cors({origin: '*'}));
-server.options('*', cors())
+server.use(cors({ origin: '*' }));
+server.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    next();
+});
+server.options('*', cors());
 server.use(express.json());
 
 server.use('/auth', authRouter);
-server.use('/users', usersRouter)
-server.use('/plants', plantsRouter)
+server.use('/users', usersRouter);
+server.use('/plants', plantsRouter);
 
 // once user is authenticated, can check that the api is up at localhost:5001/
 server.get('/', restricted, (req, res) => {
     res.json({
-        api: 'up'
+        api: 'up',
     });
 });
-
-
 
 module.exports = server;
