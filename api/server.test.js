@@ -25,6 +25,16 @@ describe('server', () => {
                 })
             );
         });
+
+        test('returns an array of users', () => {
+            return (
+                supertest(server)
+                .get('/users')
+                .then(res => {
+                    expect(res.body).toHaveLength(0);
+                })
+            )
+        })
     });
 
     describe("POST /auth/register", () => {
