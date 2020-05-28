@@ -10,6 +10,7 @@ const server = express();
 
 server.use(cors());
 server.use(cors({origin: '*'}));
+server.options('*', cors())
 server.use(express.json());
 
 server.use('/auth', authRouter);
