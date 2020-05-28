@@ -14,7 +14,6 @@ module.exports = (req, res, next) => {
                 });
             } else {
                 req.jwt = decodedToken;
-                res.header('Access-Control-Allow-Origin', '*');
                 next();
             }
         });

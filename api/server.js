@@ -9,6 +9,7 @@ const plantsRouter = require('../plants/plants-router');
 const server = express();
 
 server.use(cors());
+server.use(cors({origin: '*'}));
 server.use(express.json());
 
 server.use('/auth', authRouter);
