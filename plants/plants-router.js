@@ -1,7 +1,6 @@
 const express = require('express');
 const Plants = require('./plants-model');
-const restricted = require('../auth/auth-router')
-
+const restricted = require('../auth/auth-router');
 
 const router = express.Router();
 
@@ -46,34 +45,42 @@ router.post('/', restricted, (req, res) => {
 });
 
 router.put('/:id', restricted, (req, res) => {
-    const { id } = req.params
-    const changes = req.body
-    
-    Plants.findPlantById(id).then(plant => {
-        if (plant) {
-            Plants.updatePlant(changes, id).then(updatedPlant => {
-                res.json(updatedPlant)
-            })
-        } else {
-            res.status(404).json({ message: 'Could not find plant with given id'})
-        }
-    }).catch(err => {
-        res.status(500).json({ message: 'Failed to update plant'})
-    })
-})
+    const { id } = req.params;
+    const changes = req.body;
+
+    Plants.findPlantById(id)
+        .then((plant) => {
+            if (plant) {
+                Plants.updatePlant(changes, id).then((updatedPlant) => {
+                    res.json(updatedPlant);
+                });
+            } else {
+                res.status(404).json({
+                    message: 'Could not find plant with given id',
+                });
+            }
+        })
+        .catch((err) => {
+            res.status(500).json({ message: 'Failed to update plant' });
+        });
+});
 
 router.delete('/:id', restricted, (req, res) => {
-    const { id } = req.params
+    const { id } = req.params;
 
-    Plants.removePlant(id).then(deleted => {
-        if (deleted) {
-            res.json({ removed: deleted })
-        } else {
-            res.status(404).json({ message: 'Could not find plant with given id' })
-        }
-    }).catch(err => {
-        res.status(500).json({ message: 'Failed to delete plant' })
-    })
-})
+    Plants.removePlant(id)
+        .then((deleted) => {
+            if (deleted) {
+                res.json({ removed: deleted });
+            } else {
+                res.status(404).json({
+                    message: 'Could not find plant with given id',
+                });
+            }
+        })
+        .catch((err) => {
+            res.status(500).json({ message: 'Failed to delete plant' });
+        });
+});
 
 module.exports = router;
