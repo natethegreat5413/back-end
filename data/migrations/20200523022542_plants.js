@@ -22,6 +22,7 @@ exports.up = function (knex) {
             plants.string('species').notNullable();
             plants.integer('h2o_frequency').notNullable();
             plants.string('image_url');
+            plants.date('isWatered')
         });
 };
 
