@@ -15,16 +15,6 @@ router.get('/', restricted, (req, res) => {
         });
 });
 
-// router.get('/species', (req, res) => {
-//     Plants.findSpecies()
-//         .then((species) => {
-//             res.json(species);
-//         })
-//         .catch((err) => {
-//             res.status(500).json({ message: 'Failed to get species' });
-//         });
-// });
-
 router.get('/:id', restricted, (req, res) => {
     const { id } = req.params;
 
@@ -43,24 +33,6 @@ router.get('/:id', restricted, (req, res) => {
         });
 });
 
-// router.get('/species/:id', (req, res) => {
-//     const { id } = req.params;
-
-//     Plants.findSpeciesById(id)
-//         .then((species) => {
-//             if (species) {
-//                 res.json(species);
-//             } else {
-//                 res.status(404).json({
-//                     message: 'Could not find species with given id',
-//                 });
-//             }
-//         })
-//         .catch((err) => {
-//             res.status(500).json({ message: 'Failed to get species' });
-//         });
-// });
-
 router.post('/', restricted, (req, res) => {
     const plantData = req.body;
 
@@ -72,16 +44,6 @@ router.post('/', restricted, (req, res) => {
             res.status(500).json({ message: 'Failed to add plant' });
         });
 });
-
-// router.post('/species', restricted, (req, res) => {
-//     const speciesData = req.body
-
-//     Plants.addSpecies(speciesData).then((species) => {
-//         res.status(201).json(species)
-//     }).catch(err => {
-//         res.status(500).json({ message: 'Failed to add species' })
-//     })
-// })
 
 router.put('/:id', restricted, (req, res) => {
     const { id } = req.params
@@ -100,23 +62,6 @@ router.put('/:id', restricted, (req, res) => {
     })
 })
 
-// router.put('/species/:id', restricted, (req, res) => {
-//     const { id } = req.params
-//     const changes = req.body
-    
-//     Plants.findSpeciesById(id).then(species => {
-//         if (species) {
-//             Plants.updateSpecies(changes, id).then(updatedSpecies => {
-//                 res.json(updatedSpecies)
-//             })
-//         } else {
-//             res.status(404).json({ message: 'Could not find species with given id'})
-//         }
-//     }).catch(err => {
-//         res.status(500).json({ message: 'Failed to update species' })
-//     })
-// })
-
 router.delete('/:id', restricted, (req, res) => {
     const { id } = req.params
 
@@ -130,17 +75,5 @@ router.delete('/:id', restricted, (req, res) => {
         res.status(500).json({ message: 'Failed to delete plant' })
     })
 })
-
-// router.delete('/species/:id',restricted,  (req, res) => {
-//     Plants.removeSpecies(id).then(deleted => {
-//         if (delted) {
-//             res.json({ removed: deleted })
-//         } else {
-//             res.status(404).json({ message: 'Could not find species with given id' })
-//         }
-//     }).catch(err => {
-//         res.status(500).json({ message: 'Failed to delete species' })
-//     })
-// })
 
 module.exports = router;
