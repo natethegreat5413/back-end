@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-const pgConnection = process.env.DATABASE_URL // || postgresql localhost goes here!!!
+const pgConnection = process.env.DATABASE_URL // || postgresql localhost goes here!!
 
 module.exports = {
 
