@@ -9,7 +9,7 @@ const Users = require('../users/users-model.js');
 const { registerValid, loginValid } = require('../users/users-service.js');
 
 
-//CREATES USER, HASH AND SALT PASSWORD LIKE POTATOES
+//CREATES USER, HASH AND SALT PASSWORD LIKE POTATOES!
 router.post('/register', (req,res) => {
     const credentials = req.body;
 
@@ -73,7 +73,7 @@ router.post('/login', (req,res) => {
 
     function createToken(user) {
         const payload = {
-          sub: user.id,
+          id: user.id,
           username: user.username
         };
       
